@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/26344470/README.md)
+[README.md](https://github.com/user-attachments/files/26344737/README.md)
 # TaskFlow — Todo App
 
 ระบบ Account Login + Todo List Management พร้อม Dashboard  
@@ -11,7 +11,7 @@
 ```
 todo_app/
 ├── index.php              ← หน้ารายการงาน (Todo List)
-├── dashboard.php          ← หน้า Dashboard + Charts
+├── dashboard.php          ← หน้า Dashboard + Charts (User)
 ├── login.php              ← เข้าสู่ระบบ
 ├── register.php           ← สมัครสมาชิก
 ├── logout.php             ← ออกจากระบบ
@@ -20,15 +20,26 @@ todo_app/
 ├── includes/
 │   ├── config.php         ← Database config + PDO connection
 │   ├── auth.php           ← Auth helpers (session, CSRF, hash)
-│   └── sidebar.php        ← Sidebar component
+│   └── sidebar.php        ← Sidebar component (User)
 │
 ├── api/
 │   ├── todo_action.php    ← CRUD API (create/read/update/delete/toggle)
 │   └── stats.php          ← Stats API (สำหรับ AJAX refresh)
 │
+├── admin/
+│   ├── index.php          ← Admin Dashboard (System overview)
+│   ├── todos.php          ← Admin: จัดการ Todo ทั้งระบบ
+│   ├── users.php          ← Admin: จัดการ Users
+│   ├── 403.php            ← Error page (Access denied)
+│   ├── assets/
+│   │   └── admin.css      ← Admin stylesheet
+│   └── includes/
+│       ├── admin_guard.php    ← Admin authentication check
+│       └── admin_sidebar.php  ← Admin sidebar component
+│
 └── assets/
-    ├── css/style.css      ← Stylesheet
-    └── js/app.js          ← Frontend logic
+    ├── css/style.css      ← Stylesheet (Main + Dark theme)
+    └── js/app.js          ← Frontend logic (AJAX, interactivity)
 ```
 
 ---
@@ -71,8 +82,9 @@ http://localhost/todo_app/
 - Session timeout (1 ชั่วโมง)
 - CSRF Token ป้องกันการโจมตี
 - Password hashing ด้วย bcrypt (cost 12)
+- Role-based access control (User / Admin)
 
-### 📋 Todo Management
+### 📋 Todo Management (User)
 - ✅ เพิ่ม / แก้ไข / ลบงาน
 - ✅ กด Checkbox → เปลี่ยนสถานะ pending ↔ done ทันที (AJAX)
 - ✅ ระดับความสำคัญ: สูง 🔴 / กลาง 🟡 / ต่ำ 🟢
@@ -82,8 +94,8 @@ http://localhost/todo_app/
 - ✅ Pagination (8 รายการ/หน้า)
 - ✅ แยกข้อมูลตามผู้ใช้ (User ownership)
 
-### 📊 Dashboard
-- 📈 สถิติรวม: ทั้งหมด / เสร็จ / ยังไม่เสร็จ / เกินกำหนด
+### 📊 Dashboard (User)
+- 📈 สถิติส่วนตัว: ทั้งหมด / เสร็จ / ยังไม่เสร็จ / เกินกำหนด
 - 📊 Completion % Progress Bar
 - 🍩 Donut Chart: สัดส่วนสถานะ
 - 🍩 Donut Chart: สัดส่วนความสำคัญ
@@ -91,12 +103,21 @@ http://localhost/todo_app/
 - ⚠ รายการเกินกำหนด
 - 📅 งานกำหนดวันนี้
 
+### 👨‍💼 Admin Panel
+- 📊 Admin Dashboard: ภาพรวมทั้งระบบ
+- 👥 User Management: สร้าง / แก้ไข / ลบ / เปลี่ยน role
+- 📋 Todo Management: ดูและจัดการ Todo ทั้งระบบ
+- 📈 System Statistics: จำนวน users, todos, completion rate รวม
+- 📊 Charts: Top active users, Recent registrations, Priority breakdown
+- 🔒 Admin Guard: ป้องกันการเข้า admin หากไม่มีสิทธิ์
+
 ### 🔒 Security
 - PDO Prepared Statements (ป้องกัน SQL Injection)
 - CSRF Token ทุก Form และ AJAX request
 - Password hashed ด้วย bcrypt
 - XSS Protection (htmlspecialchars ทุกจุด)
 - User ownership verification (ดูได้เฉพาะงานของตัวเอง)
+- Admin ownership verification (Admin only pages)
 - Session httponly + samesite cookies
 - Session regeneration หลัง login
 
