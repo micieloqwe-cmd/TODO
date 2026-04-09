@@ -1,8 +1,10 @@
 [README.md](https://github.com/user-attachments/files/26344737/README.md)
-# TaskFlow — Todo App
+TaskFlow — Todo App
 
-ระบบ Account Login + Todo List Management พร้อม Dashboard  
-พัฒนาด้วย PHP + MySQL + Vanilla JS
+ระบบจัดการรายการสิ่งที่ต้องทำ (Todo List) พร้อมระบบผู้ใช้งาน (Account) และ Dashboard
+พัฒนาด้วย PHP + MySQL + Vanilla JavaScript
+
+🔗 Demo: https://tododevtasks.lovestoblog.com/login.php?i=1
 
 ---
 
