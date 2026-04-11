@@ -1,10 +1,40 @@
-[README.md](https://github.com/user-attachments/files/26344737/README.md)
-TaskFlow — Todo App
 
-ระบบจัดการรายการสิ่งที่ต้องทำ (Todo List) พร้อมระบบผู้ใช้งาน (Account) และ Dashboard
-พัฒนาด้วย PHP + MySQL + Vanilla JavaScript
 
-🔗 Demo: https://tododevtasks.lovestoblog.com/login.php?i=1
+# ⚡ TASKFLOW — The Ultimate Todo Ecosystem
+> **Next-Gen Task Management** — ระบบจัดการงานแบบ Full-stack ที่ผสานความปลอดภัยระดับองค์กร เข้ากับดีไซน์ Modern Glassmorphism
+
+<p align="center">
+  <img src="https://img.shields.io/badge/PLATFORM-TASKFLOW-blueviolet?style=for-the-badge&logo=target&logoColor=white"/>
+  <img src="https://img.shields.io/badge/UI_STYLE-GLASSMORPHISM-44D7B6?style=for-the-badge&logo=figma&logoColor=white"/>
+  <a href="https://tododevtasks.lovestoblog.com/login.php?i=1" target="_blank">
+    <img src="https://img.shields.io/badge/LIVE_DEMO-PRODUCTION-success?style=for-the-badge&logo=google-chrome&logoColor=white"/>
+  </a>
+</p>
+
+---
+
+## 💎 PLATFORM OVERVIEW
+"ไม่ใช่แค่ Todo App ทั่วไป แต่คือระบบบริหารจัดการงานที่สมบูรณ์แบบ"
+
+| 🚀 **High Performance** | 🔐 **Enterprise Security** | 📊 **Data Insight** |
+| :--- | :--- | :--- |
+| **Vanilla JS + AJAX API** | **CSRF & Bcrypt Protection** | **Chart.js 4 Integration** |
+| ตอบสนองทันใจไม่ต้อง Refresh หน้าจอ | ปลอดภัยจากการโจมตีทุกรูปแบบ | วิเคราะห์ผลงานผ่านกราฟอัจฉริยะ |
+
+---
+
+## ✨ KEY CAPABILITIES (ฟีเจอร์ระดับโปร)
+
+### 👤 USER EXPERIENCE (UX)
+* **Smart CRUD:** เพิ่ม แก้ไข ลบ และ Toggle สถานะงานแบบ Real-time (AJAX)
+* **Priority Engine:** ระบบคัดกรองความสำคัญ สูง 🔴 / กลาง 🟡 / ต่ำ 🟢
+* **Deadline Intelligence:** ระบบ Badge แจ้งเตือนสถานะ "วันนี้ / พรุ่งนี้ / เกินกำหนด"
+* **Live Analytics:** Dashboard ส่วนตัวพร้อม Donut & Bar Charts ติดตาม Progress %
+
+### 🛡️ ADMINISTRATIVE HUB
+* **System Overview:** ดูภาพรวม Users และ Todos ทั้งหมดในระบบ
+* **User Authority:** ระบบจัดการบทบาท (Roles) และสถานะสมาชิก
+* **Global Monitoring:** ตรวจสอบสถิติระบบผ่าน Charts: Top Active Users & Priority Breakdown
 
 ---
 
@@ -42,101 +72,13 @@ todo_app/
 └── assets/
     ├── css/style.css      ← Stylesheet (Main + Dark theme)
     └── js/app.js          ← Frontend logic (AJAX, interactivity)
-```
-
 ---
 
-## 🚀 วิธีติดตั้ง
-
-### 1. Setup Database
-```sql
--- ใน phpMyAdmin หรือ MySQL client รัน:
-source todo_app_updated.sql
-```
-หรือ Import ไฟล์ `todo_app_updated.sql` ผ่าน phpMyAdmin
-
-### 2. แก้ไข Database Config
-เปิด `includes/config.php` และแก้ไข:
-```php
-define('DB_HOST', 'localhost');   // Host ของ MySQL
-define('DB_USER', 'root');        // Username
-define('DB_PASS', '');            // Password
-define('DB_NAME', 'todo_app');    // ชื่อ Database
-```
-
-### 3. วางไฟล์ใน Server
-- **XAMPP**: วางใน `C:/xampp/htdocs/todo_app/`
-- **WAMP**: วางใน `C:/wamp/www/todo_app/`
-- **Linux/Mac**: วางใน `/var/www/html/todo_app/`
-
-### 4. เปิดในเบราว์เซอร์
-```
-http://localhost/todo_app/
-```
-
----
-
-## ✨ ฟีเจอร์ทั้งหมด
-
-### 🔐 Authentication
-- สมัครสมาชิก (ชื่อ, Email, Password)
-- เข้าสู่ระบบ / ออกจากระบบ
-- Session timeout (1 ชั่วโมง)
-- CSRF Token ป้องกันการโจมตี
-- Password hashing ด้วย bcrypt (cost 12)
-- Role-based access control (User / Admin)
-
-### 📋 Todo Management (User)
-- ✅ เพิ่ม / แก้ไข / ลบงาน
-- ✅ กด Checkbox → เปลี่ยนสถานะ pending ↔ done ทันที (AJAX)
-- ✅ ระดับความสำคัญ: สูง 🔴 / กลาง 🟡 / ต่ำ 🟢
-- ✅ กำหนดวันส่ง (Due Date) พร้อม badge วันนี้ / พรุ่งนี้ / เกินกำหนด
-- ✅ ค้นหาแบบ Live Search
-- ✅ Filter ตามสถานะและความสำคัญ
-- ✅ Pagination (8 รายการ/หน้า)
-- ✅ แยกข้อมูลตามผู้ใช้ (User ownership)
-
-### 📊 Dashboard (User)
-- 📈 สถิติส่วนตัว: ทั้งหมด / เสร็จ / ยังไม่เสร็จ / เกินกำหนด
-- 📊 Completion % Progress Bar
-- 🍩 Donut Chart: สัดส่วนสถานะ
-- 🍩 Donut Chart: สัดส่วนความสำคัญ
-- 📊 Bar Chart: เสร็จ vs ไม่เสร็จ แยกตามความสำคัญ
-- ⚠ รายการเกินกำหนด
-- 📅 งานกำหนดวันนี้
-
-### 👨‍💼 Admin Panel
-- 📊 Admin Dashboard: ภาพรวมทั้งระบบ
-- 👥 User Management: สร้าง / แก้ไข / ลบ / เปลี่ยน role
-- 📋 Todo Management: ดูและจัดการ Todo ทั้งระบบ
-- 📈 System Statistics: จำนวน users, todos, completion rate รวม
-- 📊 Charts: Top active users, Recent registrations, Priority breakdown
-- 🔒 Admin Guard: ป้องกันการเข้า admin หากไม่มีสิทธิ์
-
-### 🔒 Security
-- PDO Prepared Statements (ป้องกัน SQL Injection)
-- CSRF Token ทุก Form และ AJAX request
-- Password hashed ด้วย bcrypt
-- XSS Protection (htmlspecialchars ทุกจุด)
-- User ownership verification (ดูได้เฉพาะงานของตัวเอง)
-- Admin ownership verification (Admin only pages)
-- Session httponly + samesite cookies
-- Session regeneration หลัง login
-
----
-
-## ⚙️ Requirements
-- PHP 8.0+
-- MySQL 5.7+ / MariaDB 10.4+
-- PDO extension enabled
-- XAMPP / WAMP / LAMP / MAMP หรือ server ใดก็ได้
-
----
-
-## 🎨 Tech Stack
-- **Backend**: PHP 8 + PDO
-- **Database**: MySQL / MariaDB
-- **Frontend**: Vanilla JS + CSS3
-- **Charts**: Chart.js 4
-- **Fonts**: Syne + DM Sans (Google Fonts)
-- **Design**: Dark Glass Morphism Theme
+## 📂 PROJECT ARCHITECTURE
+```text
+todo_app/
+├── 🏢 admin/             # ระบบควบคุมส่วนกลาง (Admin Control Center)
+├── ⚡ api/               # หัวใจหลักของการสื่อสาร (CRUD & Stats API)
+├── 🛡️ includes/          # ระบบหลังบ้าน (Config, Auth, Security Guards)
+├── 🎨 assets/            # งานดีไซน์ (Glassmorphism CSS & Vanilla JS)
+└── 📜 todo_app_updated.sql # แผนผังฐานข้อมูลระดับโครงสร้าง
